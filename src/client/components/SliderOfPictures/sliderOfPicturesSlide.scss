@@ -1,0 +1,15 @@
+.slider__slides_slide {
+    position: absolute;
+    height: 100%;
+    background-size: cover;
+    list-style: none;
+
+    &-active {
+        z-index: 10;
+    }
+
+    & img {
+        width: 100%;
+        height: inherit;
+    }
+}

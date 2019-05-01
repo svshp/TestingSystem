@@ -1,0 +1,15 @@
+.side-menu-container {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+.item-submenu.active-item span::after {
+    transform: rotate(-90deg);
+    transition: transform 300ms;
+}
+
+.active-item {
+    color: #cccc00;
+}

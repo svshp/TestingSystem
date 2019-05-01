@@ -1,0 +1,34 @@
+.block-side-nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 94%;
+    width: 220px;
+    margin-top: 3rem;
+    overflow-y: auto;
+    background-color: #29363d;
+    color: #4b646f;
+
+    &.show-side-menu {
+        display: block;
+    }
+}
+
+/*************** SCROLLBAR STYLE ***************/
+
+.block-side-nav::-webkit-scrollbar {
+    width: 7px;
+    background: transparent;
+}
+
+.block-side-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.block-side-nav::-webkit-scrollbar-thumb {
+    background: rgba(211,221,221,0.3);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}

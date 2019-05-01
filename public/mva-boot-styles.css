@@ -1,0 +1,113 @@
+/*
+ * Include padding and border in the element's total width and height.
+ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+ 
+ /*
+  * Позволяет оптимизировать макет веб-страницы в зависимости от различных устройств и их размеров.
+  * Является аналогом <meta name="viewport">, но переносит параметры из HTML в правила CSS.
+  */
+@-ms-viewport {
+    width: device-width;
+}
+   
+ /*
+  * The <html> tag tells the browser that this is an HTML document.
+  * The <html> tag represents the root of an HTML document.
+  * The <html> tag is the container for all other HTML elements (except for the <!DOCTYPE> tag).
+  *
+  * Тег <html> является контейнером, который заключает в себе все содержимое веб-страницы, включая теги <head> и <body>.
+  * Открывающий и закрывающий теги <html> в документе необязательны, но хороший стиль диктует непременное их использование.
+  * Как правило, тег <html> идет в документе вторым, после определения типа документа (Document Type Definition, DTD), устанавливаемого через элемент <!DOCTYPE>.
+  * Закрывающий тег <html> должен всегда стоять в документе последним.
+  */
+html {
+    font-family: sans-serif;
+}
+ 
+body {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+   
+ /*********************************** CONTAINER ***********************************/
+ .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+  
+  /*
+   * The @media rule is used in media queries to apply different styles for different media types/devices.
+   *
+   * Media queries can be used to check many things, such as:
+   *
+   *     width and height of the viewport
+   *     width and height of the device
+   *     orientation (is the tablet/phone in landscape or portrait mode?)
+   *     resolution
+   * Using media queries are a popular technique for delivering a tailored style sheet (responsive web design) to desktops, laptops, tablets, and mobile phones.
+   *
+   * Наряду с типами носителей в CSS3 включена поддержка различных технических параметров устройств, на основе которых требуется загружать те или иные стили.
+   *
+   * Возможности медиа-запросов не ограничиваются выявлением мобильных устройств, с их помощью можно создавать адаптивный макет.
+   * Такой макет подстраивается под разрешение монитора и окна браузера, меняя при необходимости ширину макета, число колонок, размеры изображений и текста.
+   * Медиа-запросы ограничивают ширину макета и при достижении этого значения (к примеру за счёт уменьшения окна или при просмотре на устройстве с указанным размером)
+   * уже применяется другой стиль.
+   */
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+  
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+  
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+  
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+  
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+  
+/*********************************** ROW ***********************************/
+  
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+  
+/*********************************** COL ***********************************/
+  
