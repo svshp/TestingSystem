@@ -14,7 +14,7 @@ class BlockSideNav extends Component {
                     listMenu={ListMenu}
                 />
             </div>
-        )
+        );
     }
 }
 

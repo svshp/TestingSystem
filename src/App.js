@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import BlockHeader from './client/containers/BlockHeader/blockHeader';
-import BlockSideNav from './client/containers/BlockSideNav/blockSideNav';
-import BlockMain from './client/containers/BlockMain/blockMain';
+import BlockContent from './client/containers/BlockContent/blockContent';
 
 import './App.scss';
 
@@ -11,8 +10,7 @@ class App extends Component {
         return (
             <div className='app-component'>
                 <BlockHeader />
-                <BlockSideNav />
-                <BlockMain />
+                <BlockContent />
             </div>
         );
     }

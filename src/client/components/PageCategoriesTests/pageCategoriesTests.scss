@@ -1,0 +1,21 @@
+.page-test-categories {
+    padding: 20px 50px;
+    font-weight: 600;
+
+    &__content {
+        &_block {
+            margin: 0 20px 20px 0;
+            padding: 15px;
+            background-color: beige;
+        }
+
+        &_block h3 {
+            margin-top: 0;
+            text-decoration: underline;
+        }
+
+        &_block-sub {
+            margin: 0 0 5px 15px;
+        }
+    }
+}

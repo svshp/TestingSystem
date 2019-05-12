@@ -5,7 +5,8 @@ const sideMenuItemSub = ({
     curLevel,
     toggleSubMenu
 }) => (
-    <div className={'item-submenu '+curLevel} key={item.id} onClick={toggleSubMenu}>{item.label}<span></span></div>
+    
+    <div className={'item-submenu ' + curLevel + (item.open ? ' active-item' : '')} key={item.id} onClick={toggleSubMenu}>{item.label}<span></span></div>
 );
 
 export default sideMenuItemSub;

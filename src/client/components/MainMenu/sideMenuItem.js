@@ -7,9 +7,14 @@ import SideMenuItemSub from './sideMenuItemSub';
 import SideMenuItemSep from './sideMenuItemSep';
 
 import SideMenuContainer from './sideMenuContainer';
-import { actionChangeSubmenuVisibility } from '../../store/actions/actionsListMenu';
+import {
+    actionActivateLink,
+    actionChangeSubMenuVisibility
+} from '../../store/actions/actionsListMenu';
 
 import './sideMenuItem.scss';
+
+let traceMenu = [];
 
 class SideMenuItem extends Component {
     render() {
@@ -39,6 +44,7 @@ class SideMenuItem extends Component {
                 index={index}
                 curLevel={curLevel}
                 toggleSubMenu={this.props.toggleSubMenu}
+                traceMenu={traceMenu}
             />
         } else if (item.type === 'sep') {
             curItem = <SideMenuItemSep
@@ -66,11 +72,13 @@ const mapStateToProps = (store, ownProps) => ({
         )
     ),
 })
+
 const mapDispatchToProps = (dispatch, ownProps) => ({
     activateMe(e) {
+        dispatch(actionActivateLink(e, ownProps, traceMenu));
     },
     toggleSubMenu(e) {
-        dispatch(actionChangeSubmenuVisibility(e, ownProps));
+        dispatch(actionChangeSubMenuVisibility(e, ownProps, traceMenu));
     },
 });
 

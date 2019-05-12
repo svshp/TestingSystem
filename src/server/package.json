@@ -1,0 +1,11 @@
+{
+    "name": "testing-system",
+    "version": "0.1.0",
+    "description": "",
+    "author": "MVA",
+    "license": "ISC",
+    "devDependencies": {
+        "express": "^4.16.4",
+        "pg": "^7.9.0"
+    }
+}

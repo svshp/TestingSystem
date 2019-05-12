@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import SliderOfPictures from '../../components/SliderOfPictures/sliderOfPictures';
 import ArraySlides from '../../data/ArraySlides/arraySlides';
+//import BlockFooter from '../BlockFooter/blockFooter';
 import ListMenu from '../../components/MainMenu/listMenu.js';
 
 import './blockMain.scss';
@@ -17,19 +18,17 @@ class BlockMain extends Component {
                     height={200}
                     interval={60000}
                     showDots={true}
-                    posDots={-20}
+                    posDots={-30}
                 />
-                <h2>Block-main</h2>
-                <Switch>
-                    {ListMenu.map((item) => (
-                        item.component ? <Route key={item.path} exact path={item.path} component={item.component} /> : ''
-                    ))}
-                </Switch>
-
-
-
+                <div className='block-main__content'>
+                    <Switch className='block-main__content'>
+                        {ListMenu.map((item) => (
+                            item.component ? <Route key={item.path} exact path={item.path} component={item.component} /> : ''
+                        ))}
+                    </Switch>
+                </div>
             </div>
-        )
+        );
     }
 }
 

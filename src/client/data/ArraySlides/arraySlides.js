@@ -3,7 +3,7 @@ const ArraySlides= () => {
         [
             {
                 id: '1',
-                src: 'images/slider/001.jpg'
+                src: './images/slider/001.jpg'
             },
             {
                 id: '2',

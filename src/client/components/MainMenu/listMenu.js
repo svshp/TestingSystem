@@ -1,5 +1,7 @@
 ﻿import PageMain from '../PageMain/pageMain';
 import PageNews from '../PageNews/pageNews';
+import PageCategoriesTests from '../PageCategoriesTests/pageCategoriesTests';
+import PageContacts from '../PageContacts/pageContacts';
 
 const ListMenu = [
     {
@@ -20,6 +22,7 @@ const ListMenu = [
     },
     {
         id: 3,
+        level: 0,
         icon: '',
         label: 'Список тестов',
         type: 'sub',
@@ -29,23 +32,13 @@ const ListMenu = [
         parentId: 3,
         level: 1,
         icon: '',
-        label: 'Список дисциплин',
+        label: 'Категории тестов',
         type: 'route',
-        path: '/list-disciplines'
+        path: '/categories-tests',
+        component: PageCategoriesTests
     },
-/*
     {
         id: 302,
-        parentId: 3,
-        level: 1,
-        icon: '',
-        label: '----------',
-        type: 'sep',
-        path: ''
-    },
-*/
-    {
-        id: 303,
         parentId: 3,
         level: 1,
         icon: '',
@@ -54,8 +47,8 @@ const ListMenu = [
         path: '',
     },
     {
-        id: 30301,
-        parentId: 303,
+        id: 30201,
+        parentId: 302,
         level: 2,
         icon: '',
         label: 'Список тем - 2',
@@ -63,12 +56,30 @@ const ListMenu = [
         path: '/list-topics'
     },
     {
-        id: 3030101,
-        parentId: 30301,
+        id: 3020101,
+        parentId: 30201,
         level: 3,
         icon: '',
         label: 'Список тем - 3',
         type: 'route',
+        path: '/list-topics'
+    },
+    {
+        id: 303,
+        parentId: 3,
+        level: 1,
+        icon: '',
+        label: 'Список 2',
+        type: 'sub',
+        path: '',
+    },
+    {
+        id: 30301,
+        parentId: 303,
+        level: 2,
+        icon: '',
+        label: 'Список тем 2-2',
+        type: 'sub',
         path: '/list-topics'
     },
     {
@@ -82,6 +93,7 @@ const ListMenu = [
     },
     {
         id: 4,
+        level: 0,
         icon: '',
         label: 'Итоги тестирования',
         type: 'sub',
@@ -98,31 +110,31 @@ const ListMenu = [
     {
         id: 5,
         icon: '',
+        label: 'Контакты',
+        type: 'route',
+        path: '/contacts',
+        component: PageContacts
+    },
+    {
+        id: 6,
+        icon: '',
         label: '----------',
         type: 'sep',
         path: ''
     },
     {
-        id: 6,
+        id: 7,
         icon: '',
         label: 'www.maliugin.com.ua',
         type: 'link',
         path: 'http://www.maliugin.com.ua'
     },
     {
-        id: 7,
+        id: 8,
         icon: '',
         label: '----------',
         type: 'sep',
         path: ''
-    },
-    {
-        id: 8,
-        icon: '',
-        label: 'External Link 8',
-        type: 'link',
-        path: 'https://www.google.com',
-        externalLink: true
     },
     {
         id: 9,

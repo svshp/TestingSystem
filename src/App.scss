@@ -1,3 +1,26 @@
-body {
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
     overflow-y: hidden;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow-y: hidden;
+    background:fixed #F9F9F9;
+}
+
+.root-container {
+    position: relative;
+    height: 100%;
+}
+
+.app-component {
+    position: relative;
+    height: 100%;
 }

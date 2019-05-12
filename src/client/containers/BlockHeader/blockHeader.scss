@@ -1,5 +1,54 @@
 .block-header {
-    height: 3rem;
+    position: absolute;
+    z-index: 13;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+/*
     background-color: #3c8dbc;
+*/
+    background-color: #013d79;
     color: #fff;
+
+    &__icon-hamburger {
+        position: relative;
+        display: none;
+        top: -2px;
+        margin-left: 20px;
+    }
+
+    &__title {
+        display: inline-block;
+        padding: 0.5em 1em;
+        font-size: 1.5em;
+        font-weight: 600;
+
+        &.side-menu-show {
+            margin-left: 10px;
+        }
+    }
+}
+
+/*************** @media ***************/
+
+@media screen and (max-width: 576px) {
+    .block-header__title {
+        line-height: 2em;
+        font-size: 1em;
+    }
+
+    .block-header__icon-hamburger {
+        top: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .block-header__icon-hamburger {
+        display: inline-block;
+        cursor: pointer;
+    }
 }
