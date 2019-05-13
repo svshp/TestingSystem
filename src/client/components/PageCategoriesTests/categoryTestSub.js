@@ -1,10 +1,10 @@
 import React from 'react';
 
 const categoryTestSub = ({
-    name
+    subItem
 }) => (
     <div className='page-test-categories__content_block-sub'>
-        -&nbsp;{name}
+        -&nbsp;{subItem.name}
     </div>
 );
 

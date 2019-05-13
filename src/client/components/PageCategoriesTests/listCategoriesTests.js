@@ -1,19 +1,13 @@
 const ListCategoriesTests = [
     {
-        category: 'WEB-Development',
-        sub_category: 'Направление'
+        cat_test_id: 2,
+        name: 'Школьная программа',
+        quant_sub_cut: 2
     },
     {
-        category: 'WEB-Development',
-        sub_category: 'Раздел'
-    },
-    {
-        category: 'Школьная программа',
-        sub_category: 'Предмет'
-    },
-    {
-        category: 'Школьная программа',
-        sub_category: 'Класс'
+        cat_test_id: 1,
+        name: 'WEB-Development',
+        quant_sub_cut: 2
     }
 ]
 

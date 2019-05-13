@@ -5,26 +5,26 @@ import {
     UPDATE_LIST_MENU
 } from '../actions/actionsTypes';
 
-const changeTraceMenu = (traceMenu, newlistMenu, i) => {
-    let curPos = newlistMenu.indexOf(traceMenu[i]);
+const changeTraceMenu = (traceMenu, newListMenu, i) => {
+    let curPos = newListMenu.indexOf(traceMenu[i]);
 
     if (curPos !== -1) {
-        newlistMenu[curPos].open = false;
+        newListMenu[curPos].open = false;
     }
 
     traceMenu.pop();
 };
 
 export default function (state = {'sideMenu': true, 'mobileMenuShow': false}, action) {
-    let newlistMenu = state.listMenu;
+    let newListMenu = state.listMenu;
 
     switch(action.type) {
         case ACTIVATE_LINK: 
             for (let i = action.traceMenu.length - 1; i >= 0; i-- ) {
-                changeTraceMenu(action.traceMenu, newlistMenu, i);
+                changeTraceMenu(action.traceMenu, newListMenu, i);
             }
 
-            let newState = Object.assign({}, state, {listMenu: newlistMenu});
+            let newState = Object.assign({}, state, {listMenu: newListMenu});
 
             if (state.mobileMenuShow) {
                 newState = Object.assign({}, newState, {mobileMenuShow: false});
@@ -40,33 +40,33 @@ export default function (state = {'sideMenu': true, 'mobileMenuShow': false}, ac
             return Object.assign({}, state, {mobileMenuShow: !state.mobileMenuShow});
         case CHANGE_SUBMENU_VISIBILITY:
             if ((action.traceMenu.length > 0) && (action.traceMenu[action.traceMenu.length - 1].id === action.ownProps.item.id)) {
-                changeTraceMenu(action.traceMenu, newlistMenu, action.traceMenu.length - 1);
+                changeTraceMenu(action.traceMenu, newListMenu, action.traceMenu.length - 1);
             } else {
                 for (let i = action.traceMenu.length - 1; i >= 0; i-- ) {
                     if (action.traceMenu[i].level > action.ownProps.item.level) {
-                        changeTraceMenu(action.traceMenu, newlistMenu, i);
+                        changeTraceMenu(action.traceMenu, newListMenu, i);
                     } else if (action.traceMenu[i].level === action.ownProps.item.level) {
                         if (action.traceMenu[i].parentId === undefined) {
                             if (action.traceMenu[i].level === 0) {
-                                changeTraceMenu(action.traceMenu, newlistMenu, i);
+                                changeTraceMenu(action.traceMenu, newListMenu, i);
                             }
                         } else {
                             if (action.traceMenu[i].parentId === action.ownProps.item.parentId) {
-                                changeTraceMenu(action.traceMenu, newlistMenu, i);
+                                changeTraceMenu(action.traceMenu, newListMenu, i);
                             }
                         }
                     }
                 }
     
-                let curPos = newlistMenu.indexOf(action.ownProps.item);
+                let curPos = newListMenu.indexOf(action.ownProps.item);
     
                 if (curPos !== -1) {
-                    newlistMenu[curPos].open = true;
-                    action.traceMenu.push(newlistMenu[curPos]);
+                    newListMenu[curPos].open = true;
+                    action.traceMenu.push(newListMenu[curPos]);
                 }
             }
 
-            return Object.assign({}, state, {listMenu: newlistMenu});
+            return Object.assign({}, state, {listMenu: newListMenu});
         default:
             return state;
     }

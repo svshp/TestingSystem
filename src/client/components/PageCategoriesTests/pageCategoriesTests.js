@@ -1,48 +1,37 @@
 import React, { Component } from 'react';
-import axios  from 'axios';
+import { connect } from 'react-redux';
 
 import ListCategoriesTests from './listCategoriesTests';
+import ListSubCategoriesTests from './listSubCategoriesTests';
 import CategoryTest from './categoryTest';
+import { actionUpdateListCategories } from '../../store/actions/actionsListCategories';
 
 import './pageCategoriesTests.scss';
 
 class PageCategoriesTests extends Component {
-    state = {
-        list: []
-    }
-
     componentDidMount () {
-        /*
-        axios.get('http://localhost:3000/api/categories-tests/')
-            .then((response) => {
-                this.setState({
-                    list: response.data.rows
-                })
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        */
-
-        this.setState({
-            list: this.prepareData(ListCategoriesTests)
-        });
+        if (!this.props.tests.categories.length) {
+            this.props.updateStoreListCategories(ListCategoriesTests, ListSubCategoriesTests);
+        }
     }
 
-    prepareData(list) {
+    prepareData(tests) {
         let newList = [];
-        let prevCategory, curCategory;
-    
-        for (let i = 0; i < list.length; i++) {
-            curCategory = list[i].category;
-        
-            if (curCategory !== prevCategory) {
-                newList.push({category: curCategory, sub_category: []});
-            
-                prevCategory = curCategory;
-            }
+        let flagFound;
 
-            newList[newList.length - 1].sub_category.push(list[i].sub_category);
+        for (let i = 0; i < tests.categories.length; i++) {
+            newList.push({category: tests.categories[i], sub_category: []});
+            flagFound = false;
+        
+            for (let j = 0; j < tests.subCategories.length; j++) {
+                if (tests.subCategories[j].cat_test_id === tests.categories[i].cat_test_id) {
+                    newList[newList.length - 1].sub_category.push(tests.subCategories[j]);
+
+                    flagFound = true;
+                } else if (flagFound) {
+                    break;
+                }
+            }
         }
 
         return newList;
@@ -55,7 +44,7 @@ class PageCategoriesTests extends Component {
                     <h2>Категории тестов</h2>
                 </div>
                 <div className='page-test-categories__content row'>
-                    {this.state.list.map((item, index) => (
+                    {this.prepareData(this.props.tests).map((item, index) => (
                         <CategoryTest
                             key={index}
                             item={item}
@@ -67,4 +56,14 @@ class PageCategoriesTests extends Component {
     }
 }
 
-export default PageCategoriesTests ;
+const mapStateToProps = (store) => ({
+    tests: store.tests
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    updateStoreListCategories(listCategories, listSubCategories) {
+        dispatch(actionUpdateListCategories(listCategories, listSubCategories));
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageCategoriesTests);
