@@ -1,4 +1,5 @@
 import {
+    CHANGE_QUANT_SUBCATEGORIES,
     UPDATE_LIST_CATEGORIES
 } from '../actions/actionsTypes';
 
@@ -14,7 +15,7 @@ function compareCategories(a, b) {
     return 0;
 }
 
-function compareSubCategories(a, b) {
+function compareTypeSubCategories(a, b) {
     if (a.cat_test_id === b.cat_test_id) {
         return a.order - b.order;
     }
@@ -26,19 +27,28 @@ function sortCategories(listCategories) {
     return listCategories.sort(compareCategories)
 }
 
-function sortSubCategories(listSubCategories) {
-    return listSubCategories.sort(compareSubCategories)
+function sortTypeSubCategories(listTypeSubCategories) {
+    return listTypeSubCategories.sort(compareTypeSubCategories)
 }
 
-export default function (state = {'categories': [], 'subCategories': []}, action) {
-    let newListCategories = state.categories;
-    let newListSubCategories = state.subCategories;
+export default function (state = {'categories': [],
+                                  'typeSubCategories': [],
+                                  'listTypeSubCategories': [],
+                                  'listSubCategories': [[], []]
+                                 }, action) {
+//    let newListCategories = state.categories;
+//    let newListSubCategories = state.subCategories;
 
     switch(action.type) {
+        case CHANGE_QUANT_SUBCATEGORIES:
+            return Object.assign({}, state, {
+                listTypeSubCategories: action.listTypeSubCategories,
+                listSubCategories: action.ListSubCategoriesTests
+            });
         case UPDATE_LIST_CATEGORIES: 
             return Object.assign({}, state, {
                 categories: sortCategories(action.listCategories),
-                subCategories: sortSubCategories(action.listSubCategories)
+                typeSubCategories: sortTypeSubCategories(action.listTypeSubCategories)
             });
         default:
             return state;

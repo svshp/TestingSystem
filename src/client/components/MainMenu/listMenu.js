@@ -1,6 +1,7 @@
 ﻿import PageMain from '../PageMain/pageMain';
 import PageNews from '../PageNews/pageNews';
 import PageCategoriesTests from '../PageCategoriesTests/pageCategoriesTests';
+import PageListTests from '../PageListTests/pageListTests';
 import PageContacts from '../PageContacts/pageContacts';
 
 const ListMenu = [
@@ -42,34 +43,17 @@ const ListMenu = [
         parentId: 3,
         level: 1,
         icon: '',
-        label: 'Список тем',
-        type: 'sub',
-        path: '',
-    },
-    {
-        id: 30201,
-        parentId: 302,
-        level: 2,
-        icon: '',
-        label: 'Список тем - 2',
-        type: 'sub',
-        path: '/list-topics'
-    },
-    {
-        id: 3020101,
-        parentId: 30201,
-        level: 3,
-        icon: '',
-        label: 'Список тем - 3',
+        label: 'Список тестов',
         type: 'route',
-        path: '/list-topics'
+        path: '/list-tests',
+        component: PageListTests
     },
     {
         id: 303,
         parentId: 3,
         level: 1,
         icon: '',
-        label: 'Список 2',
+        label: 'Список тем',
         type: 'sub',
         path: '',
     },
@@ -78,12 +62,39 @@ const ListMenu = [
         parentId: 303,
         level: 2,
         icon: '',
+        label: 'Список тем - 2',
+        type: 'sub',
+        path: '/list-topics'
+    },
+    {
+        id: 3030101,
+        parentId: 30301,
+        level: 3,
+        icon: '',
+        label: 'Список тем - 3',
+        type: 'route',
+        path: '/list-topics'
+    },
+    {
+        id: 304,
+        parentId: 3,
+        level: 1,
+        icon: '',
+        label: 'Список 2',
+        type: 'sub',
+        path: '',
+    },
+    {
+        id: 30401,
+        parentId: 304,
+        level: 2,
+        icon: '',
         label: 'Список тем 2-2',
         type: 'sub',
         path: '/list-topics'
     },
     {
-        id: 304,
+        id: 305,
         parentId: 3,
         level: 1,
         icon: '',
@@ -139,16 +150,16 @@ const ListMenu = [
     {
         id: 9,
         icon: '',
-        label: 'External Link 9',
+        label: 'GitHub "TestingSystem"',
         type: 'link',
-        path: 'https://www.google.com'
+        path: 'https://github.com/svshp/TestingSystem'
     },
     {
         id: 10,
         icon: '',
-        label: 'External Link 10',
-        type: 'link',
-        path: 'https://www.google.com'
+        label: '----------',
+        type: 'sep',
+        path: ''
     },
     {
         id: 11,

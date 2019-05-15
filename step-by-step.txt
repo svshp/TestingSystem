@@ -1,0 +1,66 @@
+﻿1. Create file 'step-by-step.txt'.
+2. From project 'npx create-react-app' copy files:
+   /node_modules/*.*
+   /public/
+   /src/
+   .gitignore
+   package.json
+   package-lock.json
+   README.md
+3. Create structure of project:
+   ├─┬ public
+   │ ├─┬ images
+   │ │ ├─┬ slider
+   │ │ │ └── *.jpg
+   │ │ └── 
+   │ ├── index.html
+   │ └── mva-boot-styles.css
+   ├─┬ src
+   │ ├─┬ client
+   │ │ ├── api
+   │ │ ├── components
+   │ │ ├─┬ containers
+   │ │ │ ├─┬ BlockHeader
+   │ │ │ │ ├── BlockHeader.html
+   │ │ │ │ └── BlockHeader.scss
+   │ │ │ ├─┬ BlockMain
+   │ │ │ │ ├── BlockHeader.html
+   │ │ │ │ └── BlockHeader.scss
+   │ │ │ └─┬ BlockSideNav
+   │ │ │   ├── BlockSideNav.html
+   │ │ │   └── BlockSideNav.scss
+   │ │ ├─┬ store
+   │ │ │ ├─┬ actions
+   │ │ │ │ ├── actionTypes.js
+   │ │ │ ├─┬ reducers
+   │ │ │ │ ├── rootReducer.js
+   │ │ │ └── index.js
+   │ ├─┬ server
+   │ ├── App.js
+   │ ├── App.scss
+   │ └── index.js
+   ├── .gitignore
+   ├── package.json
+   ├── package-lock.json
+   └── README.md
+
+4. Add package with command "npm install react-router-dom --save".
+5. Add package with command "npm install react-redux redux redux-thunk --save".
+6. Add package with command "npm install node-sass [--save]".
+7. Add package with command "npm i --save @fortawesome/fontawesome-svg-core [--save]".
+8. Add package with command "npm i --save @fortawesome/free-solid-svg-icons [--save]".
+9. Add package with command "npm i --save @fortawesome/react-fontawesome [--save]".
+10. Add package with command "npm install pg [--save]".
+
+
+
+npm install axios --save
+
+
+// 8. Add package with command "npm install body-parser [--save]".
+
+
+
+
+
+

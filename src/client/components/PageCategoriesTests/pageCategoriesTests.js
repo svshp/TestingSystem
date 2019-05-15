@@ -1,50 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ListCategoriesTests from './listCategoriesTests';
-import ListSubCategoriesTests from './listSubCategoriesTests';
 import CategoryTest from './categoryTest';
 import { actionUpdateListCategories } from '../../store/actions/actionsListCategories';
+
+import ListCategoriesTests from '../../data/DB/listCategoriesTests';
+import ListTypeSubCategoriesTests from '../../data/DB/listTypeSubCategoriesTests';
+
+import { prepareDataTests } from '../../generalFunctions/generalFunctions';
 
 import './pageCategoriesTests.scss';
 
 class PageCategoriesTests extends Component {
     componentDidMount () {
         if (!this.props.tests.categories.length) {
-            this.props.updateStoreListCategories(ListCategoriesTests, ListSubCategoriesTests);
+            this.props.updateStoreListCategories(ListCategoriesTests, ListTypeSubCategoriesTests);
         }
-    }
-
-    prepareData(tests) {
-        let newList = [];
-        let flagFound;
-
-        for (let i = 0; i < tests.categories.length; i++) {
-            newList.push({category: tests.categories[i], sub_category: []});
-            flagFound = false;
-        
-            for (let j = 0; j < tests.subCategories.length; j++) {
-                if (tests.subCategories[j].cat_test_id === tests.categories[i].cat_test_id) {
-                    newList[newList.length - 1].sub_category.push(tests.subCategories[j]);
-
-                    flagFound = true;
-                } else if (flagFound) {
-                    break;
-                }
-            }
-        }
-
-        return newList;
     }
 
     render() {
         return (
-            <div className='page-test-categories'>
-                <div className='page-contacts__title row'>
+            <div className='page-categories-tests'>
+                <div className='page-categories-tests__title row'>
                     <h2>Категории тестов</h2>
                 </div>
-                <div className='page-test-categories__content row'>
-                    {this.prepareData(this.props.tests).map((item, index) => (
+                <div className='page-categories-tests__content row'>
+                    {prepareDataTests(this.props.tests).map((item, index) => (
                         <CategoryTest
                             key={index}
                             item={item}
