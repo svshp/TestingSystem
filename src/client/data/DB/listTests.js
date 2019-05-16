@@ -118,6 +118,11 @@ const ListTests = [
         test_id: 24,
         name: 'Л.В.Оляницька. Тест№5. 2 варіант',
         cat_test_id: 2
+    },
+    {
+        test_id: 25,
+        name: 'Test Front-end',
+        cat_test_id: 1
     }
 ]
 

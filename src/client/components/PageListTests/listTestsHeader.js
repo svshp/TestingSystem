@@ -11,6 +11,7 @@ import ListTypeSubCategoriesTests from '../../data/DB/listTypeSubCategoriesTests
 import ListSubCategoriesTests from '../../data/DB/listSubCategoriesTests';
 
 import ListTestsHeaderSelectCategories from './listTestsHeaderSelectCategories';
+
 import './listTestsHeader.scss';
 
 class ListTestsHeader extends Component {
@@ -42,6 +43,7 @@ class ListTestsHeader extends Component {
         }
 
         thisContent.props.changeQuantSubCategories(
+            selectedCategories,
             curTypeSubCategories,
             [
                 getSubCategories(0),
@@ -59,15 +61,16 @@ class ListTestsHeader extends Component {
                     title={'Все категории ...'}
                     onChangeFunction={this.changeCategories}
                     thisContent={this}
-                    className='page-list-tests__header_categories-tests'
+                    className='page-list-tests__header_categories-tests col-12 col-sm-4 col-lg-2'
                 />
+                <div className='page-list-tests__header_subcategories-tests col-12 col-sm-5'>
                 {
                     this.props.tests.listTypeSubCategories.length > 0 ? <ListTestsHeaderSelectCategories
                         testsCategories={this.props.tests.listSubCategories[0]}
                         fieldId={'cat_test_id'}
                         title={this.props.tests.listTypeSubCategories[0].name + ' ...'}
                         onChangeFunction={this.changeCategories}
-                        className='page-list-tests__header_categories-tests'
+                        className='page-list-tests__header_categories-tests col-12 col-sm-2 col-lg-1'
                     /> : ''
                 }
                 {
@@ -76,11 +79,10 @@ class ListTestsHeader extends Component {
                         fieldId={'cat_test_id'}
                         title={this.props.tests.listTypeSubCategories[1].name + ' ...'}
                         onChangeFunction={this.changeCategories}
-                        className='page-list-tests__header_categories-tests'
+                        className='page-list-tests__header_categories-tests col-12 col-sm-2 col-ld-1'
                     /> : ''
                 }
-
-
+                </div>
             </div>
         )
     }
@@ -94,8 +96,8 @@ const mapDispatchToProps = (dispatch) => ({
     updateStoreListCategories(listCategories, listSubCategories) {
         dispatch(actionUpdateListCategories(listCategories, listSubCategories));
     },
-    changeQuantSubCategories(listTypeSubCategories, listSubCategories) {
-        dispatch(actionChangeQuantSubCategories(listTypeSubCategories, listSubCategories));
+    changeQuantSubCategories(selectedCategories, listTypeSubCategories, listSubCategories) {
+        dispatch(actionChangeQuantSubCategories(selectedCategories, listTypeSubCategories, listSubCategories));
     }
 })
 

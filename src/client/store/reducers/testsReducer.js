@@ -32,16 +32,16 @@ function sortTypeSubCategories(listTypeSubCategories) {
 }
 
 export default function (state = {'categories': [],
+                                  'selectedCategories': 0,
                                   'typeSubCategories': [],
                                   'listTypeSubCategories': [],
                                   'listSubCategories': [[], []]
                                  }, action) {
-//    let newListCategories = state.categories;
-//    let newListSubCategories = state.subCategories;
 
     switch(action.type) {
         case CHANGE_QUANT_SUBCATEGORIES:
             return Object.assign({}, state, {
+                selectedCategories: action.selectedCategories,
                 listTypeSubCategories: action.listTypeSubCategories,
                 listSubCategories: action.ListSubCategoriesTests
             });

@@ -1,11 +1,20 @@
 .page-list-tests__header {
-    height: 30px;
+    min-height: 2em;
+/*
     padding-bottom: 10px;
+*/
     border-bottom: 1px solid #ccc;
 
     &_categories-tests {
-        min-width: 150px;
+        min-width: 200px;
+        height: 1.5em;
         margin-right: 15px;
+        margin-bottom: 10px;
+    }
+
+    &_subcategories-tests {
+        min-width: 200px;
+        padding: 0;
     }
 
 

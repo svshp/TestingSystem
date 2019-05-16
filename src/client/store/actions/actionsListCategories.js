@@ -3,8 +3,9 @@ import {
     UPDATE_LIST_CATEGORIES
 } from '../actions/actionsTypes';
 
-export const actionChangeQuantSubCategories = (listTypeSubCategories, ListSubCategoriesTests) => ({
+export const actionChangeQuantSubCategories = (selectedCategories, listTypeSubCategories, ListSubCategoriesTests) => ({
     type: CHANGE_QUANT_SUBCATEGORIES,
+    selectedCategories,
     listTypeSubCategories,
     ListSubCategoriesTests
 });

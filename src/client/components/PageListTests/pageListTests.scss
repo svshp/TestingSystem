@@ -2,24 +2,11 @@
     padding: 20px 50px;
     font-weight: 600;
 
-    &__content {
-        &_links-item {
-            height: 30px;;
-            margin-bottom: 15px;
-        }
+    &__container {
+        justify-content: space-between;
+    }
 
-        &_links-item svg {
-            margin-right: 10px;
-        }
-
-        &_links-item a{
-            text-decoration: none;
-            color: #303030;
-        }
-
-        &_map {
-            height: 150px;
-            margin-left: 50px;
-        }
+    &__pagination {
+        text-align: center;
     }
 }
