@@ -5,11 +5,8 @@ import ListTestsHeader from './listTestsHeader';
 import ListTestsContainer from './listTestsContainer';
 import Pagination from '../Pagination/pagination';
 
-import ListTests from '../../data/DB/listTests';
-
 import {
-    actionChangePage,
-    actionChangeTotalObjectsCount
+    actionChangePage
 } from '../../store/actions/actionsPagination';
 
 import './pageListTests.scss';
@@ -17,18 +14,13 @@ import './pageListTests.scss';
 const OBJECTS_COUNT_PER_PAGE = 8;
 
 class PageListTests extends Component {
-    constructor(props) {
+    constructor() {
         super();
         this.handlePageChange = this._handlePageChange.bind(this);
-        this.handlePaginationData = this._handlePaginationData.bind(this);
     }
 
     _handlePageChange(activePage) {
         this.props.changePage(activePage);
-    }
-
-    _handlePaginationData(totalObjectsCount) {
-//        this.props.changeTotalObjectsCount(totalObjectsCount);
     }
 
     render() {
@@ -65,9 +57,6 @@ const mapStateToProps = (store) => ({
 const mapDispatchToProps = (dispatch) => ({
     changePage(activePage) {
         dispatch(actionChangePage(activePage));
-    },
-    changeTotalObjectsCount(totalObjectsCount) {
-        dispatch(actionChangeTotalObjectsCount(totalObjectsCount));
     }
 })
 

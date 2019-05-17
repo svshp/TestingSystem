@@ -21,7 +21,7 @@ class Pagination extends Component {
     static defaultProps = {
         activePage: 1,
         objectsCountPerPage: 10,
-        pageRangeDisplayed: 2,
+        pageRangeDisplayed: 5,
         firstPageText: "«",
         prevPageText: "<",
         nextPageText: ">",
